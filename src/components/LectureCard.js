@@ -3,27 +3,27 @@ import styles from "./courseStyles.module.css";
 
 function LectureCard(props) {
   let myrating = "";
-  for (let i = 1, rating = props.ratingRatio; i <= 5; i++, rating--) {
+  for (let i = 1; i <= 5; i++) {
     myrating += "⭐";
   }
-  let card = (
+  return (
     <div className={styles.lecture_card}>
       <div className={styles.course_img}>
-        <img src={props.src} alt={"Python course"}></img>
+        <img src={props.card["image"]} alt={"Python course"}></img>
       </div>
-      <h6 className={styles.title}>{props.title}</h6>
-      <p className={styles.author}>{props.author}</p>
+      <h6 className={styles.title}>{props.card["title"]}</h6>
+      <p className={styles.author}>{props.card["instructor"]["name"]}</p>
       <div className={styles.rating}>
-        <span className={styles.checked}>{props.ratingRatio + myrating}</span>
-        <label>{"(" + props.ratings + ")"}</label>
+        <span className={styles.checked}>
+          {props.card["rating"]["average"] + myrating}
+        </span>
+        <label>{"(" + props.card["numberOfRatings"] + ")"}</label>
       </div>
       <div className={styles.price}>
-        <span className={styles.real_price}>{"E£ " + props.price}</span>
-        <del>{"E£ " + props.beforeOffer}</del>
+        <span className={styles.real_price}>{"E£ " + props.card["price"]}</span>
+        <del>{"E£ " + "699.199"}</del>
       </div>
     </div>
   );
-
-  return card;
 }
 export default LectureCard;

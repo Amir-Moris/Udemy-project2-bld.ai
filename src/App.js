@@ -1,23 +1,17 @@
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import NavBar from "./components/NavBar";
-import Panner from "./components/Panner";
-import Courses from "./components/Courses";
-
+import HomePage from "./components/HomePage";
+import CourseAbout from "./components/CourseAbout";
+import PageNotFound from "./components/PageNotFound";
 function App() {
   return (
     <div className="App">
-      <NavBar></NavBar>
-      <main>
-        <Panner></Panner>
-        <Courses></Courses>
-      </main>
-
-      <footer>
-        <br />
-        <br />
-        <br />
-      </footer>
+      <Routes>
+        <Route path="/" element={<HomePage></HomePage>}></Route>
+        <Route path="/course/:id" element={<CourseAbout></CourseAbout>}></Route>
+        <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
+      </Routes>
     </div>
   );
 }

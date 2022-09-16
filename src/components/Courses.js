@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import CourseContainer from "./CourseContainer";
 import styles from "./Courses.module.css";
 
-function Courses() {
+function Courses(props) {
   const activeTabRef = useRef();
   const [activetab, setActiveTab] = useState("Python");
   function changeActiveTab(newActiveTab) {
@@ -11,12 +11,30 @@ function Courses() {
     activeTabRef.current = newActiveTab.currentTarget;
 
     let str = activeTabRef.current.innerText;
-    // let temp = "";
-    // for (let i = 0; i < str.length; i++) {
-    //   temp += str[i] === " " ? "_" : str[i];
-    // }
+
     setActiveTab(str);
   }
+  // fetch courses
+  const [data, updateData] = useState(null);
+  const [isLoading, updateIsLoading] = useState(true);
+  const [Error, updateError] = useState();
+  console.log(activetab);
+  useEffect(() => {
+    fetch("http://localhost:3000/courses")
+      .then((response) => response.json())
+      .then((data) => {
+        updateIsLoading(false);
+        let temp = "";
+        for (let i = 0; i < activetab.length; i++) {
+          temp += activetab[0] === " " ? "_" : activetab[i];
+        }
+        updateData(data[temp]);
+      })
+      .catch(() => {
+        updateError(true);
+        updateData(null);
+      });
+  }, []);
 
   return (
     <section className={styles.courses}>
@@ -63,8 +81,7 @@ function Courses() {
         </ul>
       </div>
 
-      {/* course Lectures */}
-      <CourseContainer course={activetab}></CourseContainer>
+      <CourseContainer course={data} explore={activetab}></CourseContainer>
     </section>
   );
 }
