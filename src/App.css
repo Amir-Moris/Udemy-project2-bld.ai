@@ -9,13 +9,13 @@ body {
     min-width: 400px;
 }
 
-a {
-    color: #3d3c0a;
-    text-decoration: none;
-    font-family: sans-serif;
-}
-
-/* main */
+/* main styles */
 main {
     margin: 0 10%;
+}
+
+/* footer */
+footer {
+    margin-top: 2%;
+    background: #1c1d1f;
 }

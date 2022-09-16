@@ -1,0 +1,51 @@
+.panner {
+    background-color: #f8f9fb;
+    padding: 50px;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.newToUdemy {
+    background-color: white;
+    padding: 2%;
+    width: 30%;
+    height: auto;
+    box-shadow: 1px 2px 3px 4px rgba(15, 15, 15, 0.2);
+}
+
+.newToUdemy h1 {
+    font-size: 3rem;
+    margin: 2px 0;
+}
+
+.newToUdemy p {
+    font-size: larger;
+}
+
+.alarm img {
+    position: relative;
+    right: 50%;
+}
+
+/* media queries */
+@media screen and (max-width: 992px) {
+    section {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        padding: 0;
+    }
+
+    .newToUdemy {
+        width: 90%;
+        box-shadow: none;
+    }
+
+    .alarm img {
+        position: static;
+    }
+}

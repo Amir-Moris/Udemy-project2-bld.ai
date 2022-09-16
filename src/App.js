@@ -1,18 +1,23 @@
 import "./App.css";
-import CourseContainer from "./components/CourseContainer";
+
+import NavBar from "./components/NavBar";
+import Panner from "./components/Panner";
+import Courses from "./components/Courses";
 
 function App() {
   return (
     <div className="App">
+      <NavBar></NavBar>
       <main>
-        <CourseContainer
-          header={"Expand your career opportunities with Python"}
-          details={
-            "Take one of Udemy`s range of Python courses and learn how to code using this incredibly useful language. Its simple syntax and readability makes Python perfect for Flask, Django, data science, and machine learning. You’ll learn how to build everything from games to sites to apps. Choose from a range of courses that will appeal to both beginners and advanced developers alike..."
-          }
-          explore={"Python"}
-        ></CourseContainer>
+        <Panner></Panner>
+        <Courses></Courses>
       </main>
+
+      <footer>
+        <br />
+        <br />
+        <br />
+      </footer>
     </div>
   );
 }
