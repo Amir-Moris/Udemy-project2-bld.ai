@@ -1,4 +1,5 @@
 import React from "react";
+import { Route, useParams, Link } from "react-router-dom";
 import styles from "./courseStyles.module.css";
 
 function LectureCard(props) {
@@ -6,24 +7,28 @@ function LectureCard(props) {
   for (let i = 1; i <= 5; i++) {
     myrating += "⭐";
   }
+
   return (
-    <div className={styles.lecture_card}>
+    <Link
+      to={"/" + props.category + "/:" + props.card["id"]}
+      className={styles.lecture_card}
+    >
       <div className={styles.course_img}>
-        <img src={props.card["image"]} alt={"Python course"}></img>
+        <img src={props.card["image"]} alt={props.category + " course"}></img>
       </div>
       <h6 className={styles.title}>{props.card["title"]}</h6>
-      <p className={styles.author}>{props.card["instructor"]["name"]}</p>
+      <p className={styles.author}>{props.card["author"]}</p>
       <div className={styles.rating}>
         <span className={styles.checked}>
-          {props.card["rating"]["average"] + myrating}
+          {props.card["rating"]["score"] + myrating}
         </span>
-        <label>{"(" + props.card["numberOfRatings"] + ")"}</label>
+        <label>{"(" + props.card["rating"]["reviews"] + ")"}</label>
       </div>
       <div className={styles.price}>
         <span className={styles.real_price}>{"E£ " + props.card["price"]}</span>
         <del>{"E£ " + "699.199"}</del>
       </div>
-    </div>
+    </Link>
   );
 }
 export default LectureCard;

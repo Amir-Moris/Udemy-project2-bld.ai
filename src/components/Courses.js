@@ -1,10 +1,18 @@
 import React, { useState, useRef, useEffect } from "react";
 import CourseContainer from "./CourseContainer";
 import styles from "./Courses.module.css";
-
+function removeSpaces(str) {
+  let temp = "";
+  for (let i = 0; i < str.length; i++) {
+    temp += str[i] === " " ? "_" : str[i];
+  }
+  return temp;
+}
 function Courses(props) {
   const activeTabRef = useRef();
-  const [activetab, setActiveTab] = useState("Python");
+  const [activetab, setActiveTab] = useState({
+    activetab: "Python",
+  });
   function changeActiveTab(newActiveTab) {
     activeTabRef.current.classList.remove(styles.activeTab);
     newActiveTab.currentTarget.classList.add(styles.activeTab);
@@ -12,29 +20,8 @@ function Courses(props) {
 
     let str = activeTabRef.current.innerText;
 
-    setActiveTab(str);
+    setActiveTab({ activetab: removeSpaces(str) });
   }
-  // fetch courses
-  const [data, updateData] = useState(null);
-  const [isLoading, updateIsLoading] = useState(true);
-  const [Error, updateError] = useState();
-  console.log(activetab);
-  useEffect(() => {
-    fetch("http://localhost:3000/courses")
-      .then((response) => response.json())
-      .then((data) => {
-        updateIsLoading(false);
-        let temp = "";
-        for (let i = 0; i < activetab.length; i++) {
-          temp += activetab[0] === " " ? "_" : activetab[i];
-        }
-        updateData(data[temp]);
-      })
-      .catch(() => {
-        updateError(true);
-        updateData(null);
-      });
-  }, []);
 
   return (
     <section className={styles.courses}>
@@ -81,7 +68,7 @@ function Courses(props) {
         </ul>
       </div>
 
-      <CourseContainer course={data} explore={activetab}></CourseContainer>
+      <CourseContainer courseName={activetab.activetab}></CourseContainer>
     </section>
   );
 }

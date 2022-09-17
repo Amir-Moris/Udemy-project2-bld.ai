@@ -37,7 +37,6 @@
     position: relative;
     width: 1500px;
     max-width: 100%;
-    display: flex;
 }
 
 .carousel_container .carousel_inner {
@@ -45,6 +44,7 @@
 }
 
 .carousel_container .track {
+    flex-wrap: wrap;
     display: flex;
     transition: transform 0.5s;
     margin: 0.5rem 0.6rem;
