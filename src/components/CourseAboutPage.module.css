@@ -1,89 +1,79 @@
-.fixedNav {
-  background-color: #1c1d1f;
-  color: #fff;
-  z-index: 1;
-  box-shadow: 0px 0px 5px #000;
+/* more details */
+.description {
+  height: 200px;
+  overflow: hidden;
+  mask-image: -webkit-gradient(linear,
+      left top,
+      left bottom,
+      from(rgba(0, 0, 0, 1)),
+      to(rgba(0, 0, 0, 0)));
+  -webkit-mask-image: -webkit-gradient(linear,
+      left top,
+      left bottom,
+      from(rgba(0, 0, 0, 1)),
+      to(rgba(0, 0, 0, 0)));
 }
 
-.courseHeader {
-  background-color: #1c1d1f;
-  color: #fff;
-  z-index: -1;
+.seeBtn,
+.seeBtn:focus {
+  color: #5624d0;
+  box-shadow: none;
+  outline: none;
 }
 
-.courseHeader h3 {
-  font-weight: 700;
+.seeBtn:hover {
+  color: #401b9c;
 }
 
-.score {
-  font-size: 0.9em;
-  font-weight: 900;
-  color: #e9c185;
+/* instructor */
+.instructorName {
+  color: #5624d0;
+  border-color: #5624d0 !important;
 }
 
-.rating i {
-  color: #e9c185;
-  font-size: 0.72em;
+.instructorName:hover {
+  color: #401b9c;
+  border-color: #401b9c !important;
 }
 
-.reviews {
-  color: #cec0fc;
-  text-decoration: underline;
-}
-
-.rating,
-.author,
-.info,
-.guarantee {
-  font-size: 0.9em;
-  font-weight: 500;
-}
-
-.breadcrumbItem>a {
-  color: #cec0fc !important;
-  text-decoration: none;
-}
-
-.author a {
-  color: #cec0fc;
-  font-weight: 300;
-}
-
-.addCartBtn {
-  background-color: #8710d8;
-  font-size: 1.1em;
-  font-weight: 700;
-}
-
-.share>a {
-  color: #fff;
-  font-weight: 700;
-}
-
-.botNav {
-  z-index: 3;
-}
-
-.botNavFiexd {
-  top: 61px;
-  width: 100%;
-}
-
-.botNavLink {
-  transition: none !important;
-}
-
-.botNavLink a {
+.instructorTitle {
   color: #6a6f73;
-  font-weight: 700;
-  transition: none !important;
 }
 
-.botNavLink:hover {
+/* reviews */
+.star {
+  color: #e59819;
+}
+
+.separator {
+  font-size: x-large;
+  color: #6a6f73;
+}
+
+/* review card */
+.ReviewCard {
+  border-top: 1px solid black;
+}
+
+.initials {
   cursor: pointer;
-  border-bottom: 2px solid #1c1d1f;
+  width: 40px;
+  height: 40px;
 }
 
-.botNavLink:hover a {
-  color: #1c1d1f;
+.content {
+  font-weight: 600;
+}
+
+.feedback span {
+  color: #6a6f73;
+  font-size: 0.8em;
+}
+
+.feedback i {
+  cursor: pointer;
+}
+
+.mirror {
+  transform: scaleX(-1);
 }

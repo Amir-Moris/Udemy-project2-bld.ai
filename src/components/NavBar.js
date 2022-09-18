@@ -1,14 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import styles from "./NavBarStyles.module.css";
+
 function NavBar() {
   return (
-    <nav>
-      <a href="#">
+    <nav className={styles.NavBar}>
+      <Link to={"/"}>
         <img
           src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg"
           alt="udemy logo"
         />
-      </a>
+      </Link>
       <a className={styles.item} href="">
         Categories
       </a>

@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 
-import LectureCard from "./LectureCard";
 import styles from "./courseStyles.module.css";
+import LectureCard from "./LectureCard";
+import LoadingSpinner from "./LoadingSpinner";
 
 function CourseContainer(props) {
   // fetch courses
   const [data, updateData] = useState(null);
   const [isLoading, updateIsLoading] = useState(true);
-  const [Error, updateError] = useState();
+  const [Error, updateError] = useState(false);
   useEffect(() => {
     fetch("http://localhost:3000/" + props.courseName)
       .then(async (response) => await response.json())
@@ -24,25 +25,31 @@ function CourseContainer(props) {
   if (data === null) return;
 
   return (
-    <section className={styles.course_content}>
-      <div className={styles.description}>
-        <h2>{data["title"]}</h2>
-        <p>{data["description"]}</p>
-        <a href={"#"}>{"Explore " + data["name"]}</a>
-      </div>
-
-      <div className={styles.carousel_container}>
-        <div className={styles.carousel_inner}>
-          <div className={styles.track}>{createLecture(data["courses"])}</div>
+    (Error && <div>Failed to load course please try again</div>) || (
+      <section className={styles.course_content}>
+        <div className={styles.description}>
+          <h2>{data["title"]}</h2>
+          <p>{data["description"]}</p>
+          <a href={"#"}>{"Explore " + data["name"]}</a>
         </div>
-      </div>
-    </section>
+
+        <div className={styles.carousel_container}>
+          <div className={styles.carousel_inner}>
+            <div className={styles.track}>
+              {(isLoading && <LoadingSpinner full={isLoading} />) ||
+                createLecture(data["courses"])}
+            </div>
+          </div>
+        </div>
+      </section>
+    )
   );
   function createLecture(dataArr) {
-    return dataArr.map((val) => (
+    if (isLoading) console.log("asd");
+    return dataArr.map((item) => (
       <LectureCard
-        key={val["id"]}
-        card={val}
+        key={item["id"]}
+        card={item}
         category={props.courseName}
       ></LectureCard>
     ));

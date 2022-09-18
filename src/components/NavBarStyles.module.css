@@ -1,36 +1,36 @@
-nav {
+.NavBar {
+    background-color: white;
     padding: 10px 25px;
-    margin-bottom: 0.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 30px;
     box-shadow: 0px 0px 0px 3.5px whitesmoke;
-    z-index: 5;
+    z-index: 2;
 }
 
-nav img {
+.NavBar img {
     width: 5rem;
 }
 
-a {
+.NavBar a {
     color: #3d3c0a;
     text-decoration: none;
     font-family: sans-serif;
 }
 
-nav button {
+.NavBar button {
     background-color: transparent;
     border: 0;
     cursor: pointer;
 }
 
-a:hover {
+.NavBar a:hover {
     color: blueviolet;
 }
 
 /* search bar */
-nav form {
+.NavBar form {
     background-color: white;
     border: 1px solid grey;
     padding: 10px;
@@ -45,7 +45,7 @@ nav form {
     flex-grow: 1;
 }
 
-nav form input[type="text"] {
+.NavBar form input[type="text"] {
     width: 100%;
     outline: none;
     border: none;
@@ -53,8 +53,8 @@ nav form input[type="text"] {
 }
 
 /* login and signup */
-.logIn,
-.signUp {
+.NavBar .logIn,
+.NavBar .signUp {
     padding: 10px 10px;
     font-weight: bold;
     border: 1px black solid;
@@ -63,53 +63,53 @@ nav form input[type="text"] {
     background-color: white;
 }
 
-.signUp {
+.NavBar .signUp {
     color: white;
     background-color: black;
     margin-left: 0.6rem;
 }
 
-.logIn:hover {
+.NavBar .logIn:hover {
     background-color: #f7f9fa;
 }
 
-.signUp:hover {
+.NavBar .signUp:hover {
     background-color: #777;
 }
 
-nav .menu {
+.NavBar .menu {
     display: none;
 }
 
 /* media queries */
 @media screen and (max-width: 1200px) {
-    nav {
+    .NavBar {
         gap: 15px;
     }
 
-    nav a,
-    nav button,
-    nav .logIn,
-    nav .signUp {
+    .NavBar a,
+    .NavBar button,
+    .NavBar .logIn,
+    .NavBar .signUp {
         font-size: small;
     }
 }
 
 @media screen and (max-width: 992px) {
-    nav {
+    .NavBar {
         flex-direction: row-reverse;
     }
 
-    nav .item,
-    nav form,
-    nav .cart,
-    nav .logIn,
-    nav .signUp,
-    nav .language {
+    .NavBar .item,
+    .NavBar form,
+    .NavBar .cart,
+    .NavBar .logIn,
+    .NavBar .signUp,
+    .NavBar .language {
         display: none;
     }
 
-    nav .menu {
+    .NavBar .menu {
         display: flex;
     }
 }

@@ -1,6 +1,8 @@
 import React from "react";
+
 import styles from "./PannerStyles.module.css";
 import alarmimage from "./assets/clock.png";
+
 function Panner() {
   return (
     <section className={styles.panner}>

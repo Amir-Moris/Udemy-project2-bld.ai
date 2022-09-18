@@ -1,6 +1,8 @@
-import React, { useState, useRef, useEffect } from "react";
-import CourseContainer from "./CourseContainer";
+import React, { useState, useRef } from "react";
+
 import styles from "./Courses.module.css";
+import CourseContainer from "./CourseContainer";
+
 function removeSpaces(str) {
   let temp = "";
   for (let i = 0; i < str.length; i++) {
@@ -22,7 +24,6 @@ function Courses(props) {
 
     setActiveTab({ activetab: removeSpaces(str) });
   }
-
   return (
     <section className={styles.courses}>
       <h1>A broad selection of courses</h1>

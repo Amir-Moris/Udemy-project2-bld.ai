@@ -1,17 +1,54 @@
 import React from "react";
-import { Route, useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 import styles from "./courseStyles.module.css";
 
 function LectureCard(props) {
-  let myrating = "";
-  for (let i = 1; i <= 5; i++) {
-    myrating += "⭐";
-  }
+  // stars rating
+  const starsRating = (ratingRatio) => {
+    const stars = [];
+    for (let i = 1, score = ratingRatio; i <= 5; i++, score--) {
+      if (score >= 1) {
+        stars.push(
+          <span
+            className="bi bi-star-fill "
+            style={{ color: "orange" }}
+            key={i}
+          ></span>
+        );
+      } else if (score > 0) {
+        stars.push(
+          <span
+            className="bi bi-star-half"
+            style={{ color: "orange" }}
+            key={i}
+          ></span>
+        );
+      } else {
+        stars.push(
+          <span
+            className="bi bi-star"
+            style={{ color: "orange" }}
+            key={i}
+          ></span>
+        );
+      }
+    }
+    return (
+      <span>
+        <span className="me-1" style={{ color: "#b4690e" }}>
+          {ratingRatio}
+        </span>
+        <span>{stars}</span>
+      </span>
+    );
+  };
 
   return (
     <Link
       to={"/" + props.category + "/:" + props.card["id"]}
       className={styles.lecture_card}
+      style={{ textDecoration: "none", color: "black" }}
     >
       <div className={styles.course_img}>
         <img src={props.card["image"]} alt={props.category + " course"}></img>
@@ -20,7 +57,7 @@ function LectureCard(props) {
       <p className={styles.author}>{props.card["author"]}</p>
       <div className={styles.rating}>
         <span className={styles.checked}>
-          {props.card["rating"]["score"] + myrating}
+          {starsRating(props.card["rating"]["score"])}
         </span>
         <label>{"(" + props.card["rating"]["reviews"] + ")"}</label>
       </div>
