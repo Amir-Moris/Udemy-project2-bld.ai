@@ -1,0 +1,21 @@
+* {
+    font-size: medium;
+}
+
+body {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    min-width: 400px;
+}
+
+a {
+    color: #3d3c0a;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+/* main */
+main {
+    margin: 0 10%;
+}
