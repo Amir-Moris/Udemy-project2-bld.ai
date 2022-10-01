@@ -1,18 +1,29 @@
 import "./App.css";
-import CourseContainer from "./components/CourseContainer";
+import { Routes, Route } from "react-router-dom";
+
+import NavBar from "./components/NavBar";
+import HomePage from "./components/HomePage";
+import CourseAboutPage from "./components/CourseAboutPage";
+import PageNotFound from "./components/PageNotFound";
 
 function App() {
   return (
     <div className="App">
-      <main>
-        <CourseContainer
-          header={"Expand your career opportunities with Python"}
-          details={
-            "Take one of Udemy`s range of Python courses and learn how to code using this incredibly useful language. Its simple syntax and readability makes Python perfect for Flask, Django, data science, and machine learning. You’ll learn how to build everything from games to sites to apps. Choose from a range of courses that will appeal to both beginners and advanced developers alike..."
-          }
-          explore={"Python"}
-        ></CourseContainer>
-      </main>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<HomePage></HomePage>}></Route>
+        <Route
+          path="/:category/:id"
+          element={<CourseAboutPage></CourseAboutPage>}
+        ></Route>
+        <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
+      </Routes>
+
+      <footer>
+        <br />
+        <br />
+        <br />
+      </footer>
     </div>
   );
 }

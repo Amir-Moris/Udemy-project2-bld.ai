@@ -44,27 +44,24 @@
 }
 
 .carousel_container .track {
+    flex-wrap: wrap;
     display: flex;
     transition: transform 0.5s;
     margin: 0.5rem 0.6rem;
 }
 
 /* card styles */
-.carousel_container .card_container {
+.lecture_card {
     flex-shrink: 0;
     padding-right: 15px;
-    box-sizing: border-box;
-    width: 250px;
-}
-
-.lecture_card {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
     border-radius: 5px;
     height: 100%;
-    width: 100%;
+    width: 250px;
 }
+
 
 .lecture_card>* {
     flex: 1;

@@ -1,0 +1,79 @@
+/* more details */
+.description {
+  height: 200px;
+  overflow: hidden;
+  mask-image: -webkit-gradient(linear,
+      left top,
+      left bottom,
+      from(rgba(0, 0, 0, 1)),
+      to(rgba(0, 0, 0, 0)));
+  -webkit-mask-image: -webkit-gradient(linear,
+      left top,
+      left bottom,
+      from(rgba(0, 0, 0, 1)),
+      to(rgba(0, 0, 0, 0)));
+}
+
+.seeBtn,
+.seeBtn:focus {
+  color: #5624d0;
+  box-shadow: none;
+  outline: none;
+}
+
+.seeBtn:hover {
+  color: #401b9c;
+}
+
+/* instructor */
+.instructorName {
+  color: #5624d0;
+  border-color: #5624d0 !important;
+}
+
+.instructorName:hover {
+  color: #401b9c;
+  border-color: #401b9c !important;
+}
+
+.instructorTitle {
+  color: #6a6f73;
+}
+
+/* reviews */
+.star {
+  color: #e59819;
+}
+
+.separator {
+  font-size: x-large;
+  color: #6a6f73;
+}
+
+/* review card */
+.ReviewCard {
+  border-top: 1px solid black;
+}
+
+.initials {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+
+.content {
+  font-weight: 600;
+}
+
+.feedback span {
+  color: #6a6f73;
+  font-size: 0.8em;
+}
+
+.feedback i {
+  cursor: pointer;
+}
+
+.mirror {
+  transform: scaleX(-1);
+}

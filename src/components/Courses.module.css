@@ -1,0 +1,37 @@
+.courses h1 {
+    font-family: SuisseWorks, Georgia, Times, times new roman, serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 1.25;
+}
+
+.courses p {
+    margin-top: 0.8rem;
+    font-size: 1.15rem;
+}
+
+/* courses tabs */
+.coursesTabs ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1.4%;
+}
+
+.coursesTabs ul li {
+    font-family: sans-serif;
+    color: #8b8c8e;
+    font-weight: bold;
+    background-color: transparent;
+    font-size: 1rem;
+    border: 0;
+}
+
+.coursesTabs ul li.activeTab,
+.coursesTabs ul li:hover {
+    transform: scale(1.1);
+    color: black;
+    cursor: pointer;
+}
